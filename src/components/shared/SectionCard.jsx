@@ -1,4 +1,10 @@
-export default function SectionCard({ title, subtitle, children, rightContent, className = "" }) {
+export default function SectionCard({
+  title,
+  subtitle,
+  children,
+  rightContent,
+  className = "",
+}) {
   return (
     <section className={`section-card ${className}`}>
       <div className="section-header">
@@ -10,7 +16,7 @@ export default function SectionCard({ title, subtitle, children, rightContent, c
         {rightContent && <div className="section-right">{rightContent}</div>}
       </div>
 
-      <div>{children}</div>
+      <div className="section-content">{children}</div>
     </section>
   );
 }

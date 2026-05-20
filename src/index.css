@@ -429,17 +429,25 @@ button:disabled {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(320px, 380px);
   gap: 24px;
-  align-items: start;
+  align-items: stretch;
   width: 100%;
   min-width: 0;
 }
 
-.main-layout-left,
-.main-layout-right {
+.main-layout-left {
   min-width: 0;
   display: grid;
   gap: 24px;
   align-content: start;
+}
+
+.main-layout-right {
+  min-width: 0;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: 24px;
+  align-self: stretch;
+  height: 100%;
 }
 
 /* ================= SECTION CARD ================= */
@@ -803,7 +811,8 @@ button:disabled {
 /* ================= HISTORICAL WEATHER ================= */
 
 .historical-card {
-  height: 420px;
+  height: 100%;
+  min-height: 0;
   display: flex;
   flex-direction: column;
 }
@@ -813,13 +822,20 @@ button:disabled {
   margin-bottom: 18px;
 }
 
+/* penting karena SectionCard membungkus children dengan .section-content */
+.historical-card .section-content {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
 .history-list {
   display: grid;
   gap: 12px;
 }
 
 .historical-card .history-list {
-  flex: 1;
+  height: 100%;
   min-height: 0;
   overflow-y: auto;
   padding-right: 6px;
